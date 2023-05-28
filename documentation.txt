@@ -1,0 +1,11 @@
+Overview
+This is a simple and basic restaurant management system.
+
+Limitation
+1. It's assumed that every restaurant branch has the same menu like that of the restaurant.
+2. It's assumed that every restaurant will have multiple branches and the phone number and emailid of
+every restaurant will remain the same.
+3. Just one restaurant - branches are added. For rest of them, branches are not added.
+4. It's assumed that there is just one restaurant.
+5. You can order one order twice.
+6. It's assumed that there is only one customer
