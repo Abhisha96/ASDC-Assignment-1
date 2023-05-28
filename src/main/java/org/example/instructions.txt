@@ -1,0 +1,86 @@
+Instructions to operate
+
+- First run the Main.java file.
+- It will ask you to input the following
+Q.1. No. of restaurants ( Input format - int )
+e.g. 2
+
+According to the answer mentioned in 1st question, it
+will accordingly iterate and continue with Q.2 and Q.3
+
+Q.2. Enter the restaurant Id ( input format - int )
+e.g. 101
+Q.3. Enter the restaurant Name ( input format - String )
+e.g. Pizza ( no spaces allowed )
+
+Q.4. Enter the restaurant id for which you would like to enter the branch location ?
+e.g. 101 ( the restaurant id that you entered in 2nd question in iteration )
+
+Q.5 How many branch locations you would like to add for the restaurant with the id ?
+e.g 2  ( int)
+According to the answer given in Q.5, it will iterate and
+continue with Q.6 and Q.7
+
+Q.6 Enter the branch id ( int)
+e.g. 201
+Q.7 Enter the branch name ( String )
+e.g. Halifax ( enter with no spaces between the letters )
+
+Q.8 Enter the restaurant id for which you would like to enter the menuItems ?
+e.g. 2 ( int ) ( the restaurant id that you entered in 2nd question in iteration )
+
+Q.9 How many menuitems you would like to enter for ?
+e.g. 2 ( no. of menuitems ) ( int )
+
+According to the answer given in Q.9, it will iterate and
+continue with Q.10, Q.11 and Q.12
+Q.10 enter the menuId ( String ) ( enter with no spaces btw the letters )
+e.g. m1 ( String )
+
+Q.11 enter the menuItem Name ( String ) ( enter with no spaces btw the letters )
+e.g. BreadPizza ( String )
+
+Q.12 enter the price of the menuItem ( Double )
+e.g. 90.0 ( Double )
+
+It will be stored in the menu for the corresponding restaurant id.
+
+Q.13 How many customers are there in the queue ? ( ie. enter the no. of customers )
+e.g. 2 ( int )
+
+According to the answer given in Q.13, it will iterate and
+continue with Q.14, Q.15, Q.16, Q.17, Q.18, Q.19, Q.20, Q.21
+
+Q.14 Enter the customerId ( String )
+e.g. c1 ( enter without any space between the letters )
+
+Q.15 Enter your name ( String )
+e.g. Abhisha ( enter without any space between the letters )
+
+Q.16 Enter your contact number ( String )
+e.g. 8128395206 ( enter just 10 digits - validation hasn't been added, add integer
+numbers only )
+
+Q.17 Enter the restaurant id of your choice of restaurant from the above list
+e.g. choose the existing restaurant id that you have entered in
+q.2 ( int )
+
+Q.18 how many menuItems you would like to order from the following ?
+e.g. enter the total no. of menuItems that you want to order.
+it's not properly validated. so, ensure you check the number of menuitems
+already added in the restaurant and accordingly go forward.
+
+If q.18 - answer is 2, then Q.19, Q.20 will iterate 2 times.
+
+Q.19 Enter the menuid
+here, enter the menuid existing in the choice of your restaurant.
+(string )
+
+Q.20 enter the quantity
+here, enter the quantity of the menuid. e.g. 2 ( int )
+
+After the itertation of Q.19 and Q.20 is over, it will calculate
+the amounttoPay and display it.
+
+Q.21 Enter the amounttoPay
+ensue that you enter the same amount as displayed above q.21.

@@ -21,34 +21,33 @@ public class ResBranchTest {
     }
 
     @Test
-    public void testSetAndGetBranchId() {
+    void setBranchIdTest() {
         int branchId = 1;
         resBranch.setBranchId(branchId);
         assertEquals(branchId, resBranch.getBranchId());
     }
 
     @Test
-    public void testAddBranchLoc() {
+    void addBranchLocTest() {
         int resId = 1;
         Map<Integer, String> locName = new HashMap<>();
-        locName.put(1, "Branch A");
+        locName.put(1, "Halifax");
         resBranch.addBranchLoc(resId, locName);
         restaurantBranch.put(resId, locName);
         assertEquals(restaurantBranch, resBranch.getResBranch());
     }
 
     @Test
-    public void testGetBranchName() {
-        int resId = 1;
-        int branchId = 1;
+    public void getBranchNameTest() {
+
         Map<Integer, String> locName = new HashMap<>();
-        locName.put(1, "Branch A");
-        resBranch.addBranchLoc(resId, locName);
-        assertEquals("Branch A", resBranch.getBranchName(resId, branchId));
+        locName.put(1, "Halifax");
+        resBranch.addBranchLoc(1, locName);
+        assertEquals("Halifax", resBranch.getBranchName(1, 1));
     }
 
     @Test
-    public void testAddBranchContact() {
+    public void addBranchContactTest() {
         String contactNumber = "123456789";
         String emailId = "branch@example.com";
 
@@ -59,13 +58,17 @@ public class ResBranchTest {
     }
 
     @Test
-    public void testGetResBranchMock() {
-        ResBranch resBranchMock = mock(ResBranch.class);
-        Map<Integer, Map> mockMap = new HashMap<>();
+    public void getResBranchTest() {
+        ResBranch mock = mock(ResBranch.class);
+
         Map<Integer, String> locName = new HashMap<>();
-        locName.put(1, "Branch A");
+        locName.put(1, "Halifax");
+
+        Map<Integer, Map> mockMap = new HashMap<>();
         mockMap.put(1, locName);
-        when(resBranchMock.getResBranch()).thenReturn(mockMap);
-        assertEquals(mockMap, resBranchMock.getResBranch());
+
+        when(mock.getResBranch()).thenReturn(mockMap);
+
+        assertEquals(mock.getResBranch(), mockMap);
     }
 }

@@ -3,6 +3,8 @@ package org.example;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
+
 public class Restaurant {
     String res_name;
     int res_id;
@@ -24,7 +26,7 @@ public class Restaurant {
         res_branch_list = new HashMap<>();
     }
     /*
-    Adds just one restaurant name
+    Adds just one restaurant name at a time
      */
     void addResname(int res_id,String res_name){
         this.res_id = res_id;
@@ -32,7 +34,7 @@ public class Restaurant {
         addResnames(this.res_id,this.res_name);
     }
     /*
-    Adds many restaurant names
+    Adds many restaurant names and stores it in resNames
      */
     void addResnames(int res_id,String res_name){
         resNames.put(res_id,res_name);
@@ -43,11 +45,19 @@ public class Restaurant {
     String getResname(){
         return this.res_name;
     }
+    // returns all the restaurant Ids.
+    Set getResIds(){
+        return resNames.keySet();
+    }
+    // returns all the restaurant names
+    Map getResNames(){
+        return resNames;
+    }
     String getResnames(int res_id){
         return resNames.get(res_id);
     }
     /*
-    Adds menu by the restaurant
+    Adds menuitem as per the restaurantid
     */
     void addResmenu(int res_id,menuItem item){
         Map<String,menuItem> mapMenuItem = item.getmenuItem();
@@ -64,7 +74,7 @@ public class Restaurant {
         return res_menu_list;
     }
     /*
-    Adds branch of the restaurant.
+    Adds branch of the restaurant by the restaurant id
      */
     void addResBranch(int res_id,ResBranch rb){
         Map<Integer,Map> mapResBranch = rb.getResBranch();

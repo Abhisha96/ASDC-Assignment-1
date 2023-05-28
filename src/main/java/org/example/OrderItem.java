@@ -7,6 +7,8 @@ public class OrderItem {
     private double price;
     private int quantity;
     private String menuId;
+    // map - which binds the menuId with the corresponding menuitemId, price, quantity and subtotal. price
+    // and quantity will be as entered by the user in main.java and subtotal will be as calculated by price*quantity
 
     private Map<String,OrderItem> orderdetails = new HashMap<>();
     private double subtotal;
@@ -60,7 +62,14 @@ public class OrderItem {
     public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
-
+    /*
+    Below 2 methods are used for testing purpose. Because assertEquals compares the memory location
+    of the objects. Therefore, it's override to ensure that it compares the values, instead of comparing
+    the memory location.
+    References
+    https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Object.html#equals(java.lang.Object)
+    https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Object.html#hashCode()
+     */
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -69,11 +78,11 @@ public class OrderItem {
         if (obj == null || getClass() != obj.getClass()) {
             return false;
         }
-        OrderItem other = (OrderItem) obj;
-        return Objects.equals(menu_item, other.menu_item) &&
-                Objects.equals(price, other.price) &&
-                Objects.equals(quantity, other.quantity) &&
-                Objects.equals(subtotal, other.subtotal);
+        OrderItem second= (OrderItem) obj;
+        return Objects.equals(menu_item, second.menu_item) &&
+                Objects.equals(price, second.price) &&
+                Objects.equals(quantity, second.quantity) &&
+                Objects.equals(subtotal, second.subtotal);
 
     }
     @Override

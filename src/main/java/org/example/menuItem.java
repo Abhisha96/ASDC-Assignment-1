@@ -3,9 +3,9 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-// stores the menuItem and price of each dishes.
+// stores the menuItem and price of each Items.
 public class menuItem {
-    //Map<String, > menuItemDetailsById;
+    // map - which binds the menuitemId with the corresponding menuitemId, menuitemName and menuitemPrice.
     Map<String, menuItem> menuitemDetails;
     String menuitemName;
     Double menuitemPrice;
@@ -43,6 +43,15 @@ public class menuItem {
     Map getmenuItem(){
         return menuitemDetails;
     }
+
+    /*
+    Below methods are used for testing purpose. Because assertEquals compares the memory location
+    of the objects. Therefore, it's override to ensure that it compares the values, instead of comparing
+    the memory location.
+    References
+    https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Object.html#equals(java.lang.Object)
+    https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Object.html#hashCode()
+     */
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -51,10 +60,10 @@ public class menuItem {
         if (obj == null || getClass() != obj.getClass()) {
             return false;
         }
-        menuItem other = (menuItem) obj;
-        return Objects.equals(menuitemId, other.menuitemId) &&
-                Objects.equals(menuitemName, other.menuitemName) &&
-                Objects.equals(menuitemPrice, other.menuitemPrice);
+        menuItem second = (menuItem) obj;
+        return Objects.equals(menuitemId, second.menuitemId) &&
+                Objects.equals(menuitemName, second.menuitemName) &&
+                Objects.equals(menuitemPrice, second.menuitemPrice);
     }
     @Override
     public int hashCode() {

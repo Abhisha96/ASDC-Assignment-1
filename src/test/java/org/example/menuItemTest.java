@@ -13,47 +13,48 @@ import static org.mockito.Mockito.*;
 class menuItemTest {
 
     @Test
-    void testSetMenuitemDetails() {
+    void setMenuitemDetailsTest() {
         menuItem menuItem = new menuItem();
-        menuItem.setMenuitemDetails("m1", "Bread Pizza", 45.0);
+        // compare - 1
+        menuItem.setMenuitemDetails("m1", "BreadPizza", 45.0);
 
-        Map<String, menuItem> expectedMenuitemDetails = new HashMap<>();
-        expectedMenuitemDetails.put("m1", new menuItem("m1", "Bread Pizza", 45.0));
+        Map<String, menuItem> expected = new HashMap<>();
+        // compare - 2
+        expected.put("m1", new menuItem("m1", "BreadPizza", 45.0));
 
-        assertEquals(menuItem.getmenuItem(),expectedMenuitemDetails);
-        // verify(expectedMenuitemDetails).get("m1");
+        //compare 1 with 2
+        assertEquals(expected,menuItem.getmenuItem());
     }
 
     @Test
-    void testGetMenuitemPrice() {
+    void getMenuitemPriceTest() {
         menuItem menuItem = new menuItem();
-        menuItem.setMenuitemDetails("m1", "Bread Pizza", 45.0);
-
+        menuItem.setMenuitemDetails("m1", "BreadPizza", 45.0);
         assertEquals(45.0, menuItem.getMenuitemPrice("m1"));
     }
 
     @Test
-    void testGetMenuitemName() {
+    void getMenuitemNameTest() {
         menuItem menuItem = new menuItem();
-        menuItem.setMenuitemDetails("m1", "Bread Pizza", 45.0);
-
-        assertEquals("Bread Pizza", menuItem.getMenuitemName("m1"));
+        menuItem.setMenuitemDetails("m1", "BreadPizza", 45.0);
+        assertEquals("BreadPizza", menuItem.getMenuitemName("m1"));
     }
 
     @Test
-    void TestgetmenuItem() {
+    void getmenuItemTest() {
         menuItem menuItem = Mockito.mock(menuItem.class);
 
-        Map<String, menuItem> mockMenuitemDetails = new HashMap<>();
-        mockMenuitemDetails.put("m1", new menuItem("m1", "Bread Pizza", 45.0));
-        mockMenuitemDetails.put("m2", new menuItem("m2", "Pepperoni Pizza", 50.0));
+        // compare 1 - mock the menuItem -
+        Map<String, menuItem> mockDetails = new HashMap<>();
+        mockDetails.put("m1", new menuItem("m1", "Bread Pizza", 45.0));
+        mockDetails.put("m2", new menuItem("m2", "Pepperoni Pizza", 50.0));
+        when(menuItem.getmenuItem()).thenReturn(mockDetails);
 
-        when(menuItem.getmenuItem()).thenReturn(mockMenuitemDetails);
+        // compare 2
+        Map<String, menuItem> expectedDetails = new HashMap<>();
+        expectedDetails.put("m1", new menuItem("m1", "Bread Pizza", 45.0));
+        expectedDetails.put("m2", new menuItem("m2", "Pepperoni Pizza", 50.0));
 
-        Map<String, menuItem> expectedMenuitemDetails = new HashMap<>();
-        expectedMenuitemDetails.put("m1", new menuItem("m1", "Bread Pizza", 45.0));
-        expectedMenuitemDetails.put("m2", new menuItem("m2", "Pepperoni Pizza", 50.0));
-
-        assertEquals(menuItem.getmenuItem(),expectedMenuitemDetails);
+        assertEquals(expectedDetails,menuItem.getmenuItem());
     }
 }
