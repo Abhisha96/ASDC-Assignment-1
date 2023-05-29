@@ -150,6 +150,14 @@ public class Main {
                                 System.out.println("Amount has been paid successfully. Your order will be ready in few seconds.");
                             } else {
                                 System.out.println("Amount to be paid by customer" + amounttoPay);
+                                System.out.println("Enter the amount to pay");
+                                customerAmount = sc.nextDouble();
+                                amountPaid = customerObj.makePayment(customerAmount, amounttoPay);
+                                if(amountPaid){
+                                    System.out.println("Amount has been paid successfully. Your order will be ready in few seconds.");
+                                }else{
+                                    System.out.println("Please try again");
+                                }
                             }
                         }
                         n_customers--;

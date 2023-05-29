@@ -92,6 +92,7 @@ public class Customer {
         else if(customerAmount > 0.0){
             if(customerAmount.doubleValue() == amounttoPay.doubleValue()){
                 isAmountPaid = true;
+
             }else{
                 System.out.println("Please pay the appropriate amount"+amounttoPay);
                 isAmountPaid = false;
