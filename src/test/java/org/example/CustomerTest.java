@@ -2,7 +2,12 @@ package org.example;
 import org.junit.Before;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.Mock;
 import org.mockito.Mockito;
+import org.mockito.junit.jupiter.MockitoExtension;
+import org.mockito.junit.jupiter.MockitoSettings;
+import org.mockito.quality.Strictness;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -12,7 +17,11 @@ import java.util.Map;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
+@ExtendWith(MockitoExtension.class)
+@MockitoSettings(strictness = Strictness.LENIENT)
 class CustomerTest {
+    @Mock
+    private static DbService db;
     @Test
     void AddCustomerIdTest() {
         Customer customer = new Customer();
@@ -102,5 +111,26 @@ class CustomerTest {
         boolean isAmonuntPaid2 = customer.makePayment(90.0,50.0);
         assertFalse(isAmountPaid1);
         assertFalse(isAmonuntPaid2);
+    }
+    @Test
+    void saveCustomerDatainDatabaseTest(){
+        when(db.saveCustomer()).thenReturn(true);
+        boolean result = Main.saveCustomerInDatabase(db);
+        assertTrue(result,"Result should be true");
+        verify(db).saveCustomer();
+    }
+    @Test
+    void readCustomerIdTest(){
+        when(db.readCustomerId()).thenReturn(true);
+        boolean result = Main.readCustomerId(db);
+        assertTrue(result,"Result should be true");
+        verify(db).readCustomerId();
+    }
+    @Test
+    void readCustomerNameTest(){
+        when(db.readCustomerName()).thenReturn(true);
+        boolean result = Main.readCustomerName(db);
+        assertTrue(result,"Result should be true");
+        verify(db).readCustomerName();
     }
 }

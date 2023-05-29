@@ -62,7 +62,6 @@ public class RestaurantTest {
             restaurant.addResmenu(1, menuitem);
             verify(restaurant).addResmenu(1, menuitem);
         }
-
         @Test
         void addResBranchTest() {
             ResBranch resBranch = Mockito.mock(ResBranch.class);

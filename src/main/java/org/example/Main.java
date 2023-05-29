@@ -117,6 +117,7 @@ public class Main {
                     System.out.println("Enter your contact number");
                     String contact_number = sc.next();
                     Customer customerObj = new Customer(customer_id, customer_name, contact_number);
+                    saveCustomerInDatabase(db);
 
                     System.out.println("Which restaurant you would like to go from the following");
                     System.out.println(r.getResNames().entrySet());
@@ -124,12 +125,7 @@ public class Main {
                     int res_id = sc.nextInt();
 
                     if (r.getResIds().contains(res_id)) {
-                /*System.out.println("which branch you want to visit of this restaurant");
-                int branch_id = sc.nextInt();
 
-                System.out.println("Restaurant name is"+c1.goestoRestaurant(r.getResnames(res_id)));
-                System.out.println("Branch name is"+c1.goestoRestaurantBranch(rb.getBranchName(res_id,branch_id)));
-                */
                         System.out.println("how many menuItems you would like to order from the following" + r.getResmenulistbyId(res_id));
 
                         if (r.getResmenulistbyId(res_id) == null) {
@@ -165,5 +161,24 @@ public class Main {
         } else {
             System.out.println("restaurant id is incorrect. please enter the correct restaurant id");
         }
+    }
+    static DbService db = new DbService();
+
+    public DbService getDb() {
+        return db;
+    }
+
+    public void setDb(DbService db) {
+        this.db = db;
+    }
+
+    public static Boolean saveCustomerInDatabase(DbService db){
+        return db.saveCustomer();
+    }
+    public static Boolean readCustomerId(DbService db){
+        return db.readCustomerId();
+    }
+    public static Boolean readCustomerName(DbService db){
+       return db.readCustomerName();
     }
 }

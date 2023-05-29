@@ -52,7 +52,6 @@ public class ResBranchTest {
         String emailId = "branch@example.com";
 
         resBranch.addBranchContact(contactNumber, emailId);
-
         assertEquals(contactNumber, resBranch.getContactNumber());
         assertEquals(emailId, resBranch.getEmailId());
     }
@@ -68,7 +67,6 @@ public class ResBranchTest {
         mockMap.put(1, locName);
 
         when(mock.getResBranch()).thenReturn(mockMap);
-
         assertEquals(mock.getResBranch(), mockMap);
     }
 }
