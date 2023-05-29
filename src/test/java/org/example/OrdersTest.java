@@ -3,7 +3,9 @@ package org.example;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -41,7 +43,16 @@ public class OrdersTest {
         // Create an instance of the class under test
         Orders orders = new Orders();
         Double total = orders.setTotal(10.0);
-
         assertEquals(10.0, total);
+    }
+    @Test
+    public void getTotalTest(){
+        List<Double> subtotal = new ArrayList<>();
+        subtotal.add(40.00);
+        subtotal.add(60.00);
+
+        Orders orders = new Orders();
+        Double total = orders.getTotal(subtotal);
+        assertEquals(100.00,total);
     }
 }

@@ -29,7 +29,7 @@ public class Orders {
        // returns the total by invoking a private method
        return getTotal(subtotallist);
     }
-     private Double getTotal(List subtotallist){
+    Double getTotal(List subtotallist){
         Double total = 0.0;
         for(int i=0;i<subtotallist.size();i++){
             total +=  (double) subtotallist.get(i);
