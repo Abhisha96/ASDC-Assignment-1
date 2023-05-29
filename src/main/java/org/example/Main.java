@@ -9,6 +9,25 @@ This is the main class. Run this class first.
 This class is used for storing the restaurant-information and interaction with the customer on console.
  */
 public class Main {
+    static DbService db = new DbService();
+
+    public DbService getDb() {
+        return db;
+    }
+
+    public void setDb(DbService db) {
+        this.db = db;
+    }
+
+    public static Boolean saveCustomerInDatabase(DbService db){
+        return db.saveCustomer();
+    }
+    public static Boolean readCustomerId(DbService db){
+        return db.readCustomerId();
+    }
+    public static Boolean readCustomerName(DbService db){
+        return db.readCustomerName();
+    }
     public static void main(String[] args) {
 
         String filepath = "C:/Users/AVuser/IdeaProjects/athaker/src/main/java/org/example/instructions.txt";
@@ -169,24 +188,5 @@ public class Main {
         } else {
             System.out.println("restaurant id is incorrect. please enter the correct restaurant id");
         }
-    }
-    static DbService db = new DbService();
-
-    public DbService getDb() {
-        return db;
-    }
-
-    public void setDb(DbService db) {
-        this.db = db;
-    }
-
-    public static Boolean saveCustomerInDatabase(DbService db){
-        return db.saveCustomer();
-    }
-    public static Boolean readCustomerId(DbService db){
-        return db.readCustomerId();
-    }
-    public static Boolean readCustomerName(DbService db){
-       return db.readCustomerName();
     }
 }
